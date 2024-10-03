@@ -120,8 +120,9 @@ public class ConfluentSchemaRegistryCoder implements SchemaCoder {
     }
 
     private boolean registerSchema() {
-        return this.registryConfigs != null && registryConfigs.containsKey("auto.register.schemas")
+        return (this.registryConfigs != null
+                        && registryConfigs.containsKey("auto.register.schemas"))
                 ? Boolean.parseBoolean((String) registryConfigs.get("auto.register.schemas"))
-                : false;
+                : true;
     }
 }
